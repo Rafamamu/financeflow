@@ -1,9 +1,12 @@
 package com.rafamamu.financeflow.model;
 
 import jakarta.persistence.*;
+import lombok.Builder;
+
 import java.time.LocalDateTime;
 
 @Entity
+@Builder
 @Table(name = "users")
 public class User {
 
