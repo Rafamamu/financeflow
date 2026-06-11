@@ -4,6 +4,7 @@ import com.rafamamu.financeflow.dto.UserRequestDTO;
 import com.rafamamu.financeflow.dto.UserResponseDTO;
 import com.rafamamu.financeflow.model.User;
 import com.rafamamu.financeflow.service.UserService;
+import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -19,7 +20,7 @@ public class UserController {
     }
 
     @PostMapping("/userRegister")
-    public UserResponseDTO createUser(@RequestBody UserRequestDTO request) {
+    public UserResponseDTO createUser(@Valid @RequestBody UserRequestDTO  request) {
         return  userService.createUser(request);
     }
 
