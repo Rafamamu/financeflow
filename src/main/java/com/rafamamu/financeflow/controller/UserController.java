@@ -1,5 +1,7 @@
 package com.rafamamu.financeflow.controller;
 
+import com.rafamamu.financeflow.dto.UserRequestDTO;
+import com.rafamamu.financeflow.dto.UserResponseDTO;
 import com.rafamamu.financeflow.model.User;
 import com.rafamamu.financeflow.service.UserService;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,9 +19,8 @@ public class UserController {
     }
 
     @PostMapping("/userRegister")
-    public User createUser(@RequestBody User user) {
-         return  userService.createUser(user);
-
+    public UserResponseDTO createUser(@RequestBody UserRequestDTO request) {
+        return  userService.createUser(request);
     }
 
 
