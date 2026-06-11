@@ -1,5 +1,8 @@
 package com.rafamamu.financeflow.service;
 
+import com.rafamamu.financeflow.dto.UserRequestDTO;
+import com.rafamamu.financeflow.dto.UserResponseDTO;
+import com.rafamamu.financeflow.mapper.UserMapper;
 import com.rafamamu.financeflow.model.User;
 import com.rafamamu.financeflow.repository.UserRepository;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -17,12 +20,13 @@ public class UserService {
     }
 
 
-    public User createUser(User user) {
-        user.setPassword(passwordEncoder.encode(user.getPassword()));
-       return userRepository.save(user);
+    public UserResponseDTO createUser(UserRequestDTO requestDTO) {
+        User newUser = UserMapper.toEntity(requestDTO);
+        newUser.setPassword(passwordEncoder.encode(newUser.getPassword()));
+        User userSaved = userRepository.save(newUser);
+
+        return UserMapper.toResponse(userSaved);
     }
-
-
 
 
 }

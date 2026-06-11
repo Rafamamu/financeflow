@@ -16,8 +16,7 @@ public class UserMapper {
                 .build();
     }
 
-    public static User toUserEntity(UserRequestDTO requestDTO) {
-
+    public static User toEntity(UserRequestDTO requestDTO) {
         return User.builder()
                 .name(requestDTO.getName())
                 .email(requestDTO.getEmail())
