@@ -1,6 +1,22 @@
 package com.rafamamu.financeflow.dto;
 
-public record UserRequestDTO(String name,
-                             String email,
-                             String password) {
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+public class UserRequestDTO {
+
+    private String name;
+    private String email;
+    private String password;
+
+
+
+
+
 }
