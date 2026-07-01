@@ -34,6 +34,4 @@ public class AuthController {
             throw new RuntimeException("Senha incorreta!");
         }
     }
-
-
 }
